@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.teddy-bear {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 30px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teddy-bear:hover {
+    transform: scale(1.1);
+}
+
+.teddy-head {
+    width: 120px;
+    height: 120px;
+    background-color: #8B4513;
+    border-radius: 60%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.ear {
+    width: 40px;
+    height: 40px;
+    background-color: #8B4513;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+}
+
+.ear.left {
+    left: -10px;
+}
+
+.ear.right {
+    right: -10px;
+}
+
+.face {
+    position: relative;
+    top: 30px;
+}
+
+.eye {
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+}
+
+.eye.left {
+    left: 30px;
+}
+
+.eye.right {
+    right: 30px;
+}
+
+.nose {
+    width: 16px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 30%;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+}
+
+.teddy-body {
+    width: 140px;
+    height: 120px;
+    background-color: #8B4513;
+    border-radius: 50% / 60%;
+    margin: -20px auto 0;
+    position: relative;
+}
+
+.arm {
+    width: 40px;
+    height: 80px;
+    background-color: #8B4513;
+    position: absolute;
+    top: 20px;
+    border-radius: 20px;
+}
+
+.arm.left {
+    left: -20px;
+    transform: rotate(-30deg);
+}
+
+.arm.right {
+    right: -20px;
+    transform: rotate(30deg);
+}
+
+.flowers {
+    position: absolute;
+    width: 100%;
+    font-size: 2em;
+}
+
+.flower {
+    position: absolute;
+    opacity: 0;
+    animation: floatFlower 3s infinite;
+}
+
+.flower1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.flower2 {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.flower3 {
+    left: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes floatFlower {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.message {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #ff4b6e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.heart-text {
+    color: #333;
+    font-size: 1.2em;
+    margin: 0;
+}
