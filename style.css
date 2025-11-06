@@ -14,6 +14,76 @@ body {
     position: relative;
 }
 
+/* Sağ tarafta test paneli */
+.love-test{
+    position: fixed;
+    right: 18px;
+    top: 18%;
+    width: 280px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    padding: 16px 18px;
+    text-align: left;
+}
+
+.love-test h2{ margin: 0 0 8px; color:#ff4b6e; font-size: 1.1rem; }
+.love-test p{ margin: 0 0 12px; color:#444; font-size: .95rem; }
+
+.btn-start{
+    display:inline-block;
+    background: #ff4b6e;
+    color: #fff;
+    border: 0;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(255,75,110,0.35);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-start:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(255,75,110,0.45); }
+.btn-start:active{ transform: translateY(0); }
+
+/* Quiz */
+.quiz-intro{ margin: 4px 0 10px; font-size:.9rem; color:#555; }
+.quiz-header{ display:flex; justify-content:flex-end; margin-bottom:6px; }
+.quiz-progress{ font-size:.85rem; color:#777; }
+.quiz-question{ font-weight:600; color:#333; margin: 6px 0 10px; }
+.quiz-options{ display:flex; flex-direction:column; gap:8px; margin-bottom: 10px; }
+.option{
+    width: 100%;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    text-align:left;
+    transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+.option:hover{ background:#fff6f8; border-color:#ffd5df; }
+.option:disabled{ opacity:.75; cursor:not-allowed; }
+.option.correct{ background:#e8f7ef; border-color:#34c759; color:#1a7d3a; }
+.option.wrong{ background:#ffeaea; border-color:#ff3b30; color:#8a1c18; }
+
+.quiz-actions{ display:flex; gap:8px; }
+.btn-next{
+    display:inline-block;
+    background:#ff9a3c;
+    color:#fff;
+    border:0;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor:pointer;
+    box-shadow: 0 6px 14px rgba(255,154,60,0.35);
+}
+.quiz-result{ margin-top:10px; font-weight:700; color:#222; }
+
+@media (max-width: 820px){
+    .love-test{ position: static; width:auto; margin: 0 16px 16px; }
+}
+
 .teddy-bear {
     width: 200px;
     height: 250px;
