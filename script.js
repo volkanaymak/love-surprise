@@ -1,52 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const teddyBear = document.querySelector('.teddy-bear');
-    const message = document.querySelector('.message');
-    
-    // Ayıcığa tıklandığında kalp efekti
-    teddyBear.addEventListener('click', () => {
-        createHeart(event);
-        playHeartbeat();
+    // Sayfaya tıklandığında sadece çokça gül yağısı oluştur
+    document.addEventListener('click', (e) => {
+        // Eğer kullanıcı zaten bir .rose elementine tıklıyorsa tetikleme
+        // (rose'lar pointer-events:none olduğu için burada genelde gerek yok)
+        createRoses(30);
     });
 });
 
-// Kalp efekti oluşturma
-function createHeart(event) {
-    const heart = document.createElement('div');
-    heart.innerHTML = '❤️';
-    heart.style.position = 'absolute';
-    heart.style.left = `${event.clientX}px`;
-    heart.style.top = `${event.clientY}px`;
-    heart.style.fontSize = '2em';
-    heart.style.pointerEvents = 'none';
-    heart.style.animation = 'floatHeart 1s forwards';
-    
-    document.body.appendChild(heart);
-    
-    // Animasyon bitince elementi kaldır
-    setTimeout(() => {
-        heart.remove();
-    }, 1000);
-}
+// (Not: kalp ve ses efektleri kaldırıldı - tıklamada yalnızca güller yağacak)
 
-// Kalp atışı sesi efekti
-function playHeartbeat() {
-    const audio = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU');
-    audio.volume = 0.3;
-    audio.play().catch(e => console.log('Ses çalınamadı'));
-}
+// Üstten güller yağdırma fonksiyonu
+function createRoses(count) {
+    for (let i = 0; i < count; i++) {
+        const rose = document.createElement('div');
+        rose.className = 'rose';
+        rose.textContent = '🌹';
 
-// Kalp animasyonu için CSS
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes floatHeart {
-        0% {
-            transform: translate(0, 0) rotate(0deg);
-            opacity: 1;
-        }
-        100% {
-            transform: translate(0, -100px) rotate(360deg);
-            opacity: 0;
-        }
+        // Rastgele konum ve zamanlama
+        const left = Math.random() * 100; // yüzde olarak
+        const delay = Math.random() * 0.8; // saniye
+        const dur = 1.6 + Math.random() * 1.8; // saniye
+
+        rose.style.left = `${left}%`;
+        rose.style.animationDelay = `${delay}s`;
+        rose.style.animationDuration = `${dur}s`;
+
+        document.body.appendChild(rose);
+
+        rose.addEventListener('animationend', () => rose.remove());
     }
-`;
-document.head.appendChild(style);
+}
